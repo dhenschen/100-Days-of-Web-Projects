@@ -1,0 +1,41 @@
+li {
+    display: inline-block;
+    color: gray;
+    margin-left: 1.25em;
+    margin-bottom: 1.75em;
+    font-weight: bold;
+}
+
+.text:hover {
+    color: white;
+}
+
+.text, .title {
+    transform: translateY(-35%);
+}
+
+ul {
+    display: inline-block;
+    background-color: black;
+    height: 2.5em;
+    width: 100%;
+    padding-top: 0px;
+    margin-block-start: auto;
+    margin-block-end: auto;
+}
+
+img {
+    border-radius:50%;
+}
+
+
+li > img, li {
+    height: 95%;
+    width: auto;
+    object-fit: contain;
+}
+
+body { 
+    margin: 0px;
+}
+
