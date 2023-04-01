@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form class="mui-form" action="/post", method="post">
+    <legend>Enter a form</legend>
+    <div class="mui-textfield">
+        <input type="text" name="username">
+    </div>
+    <div class="mui-textfield">
+        <input type="password" name="password">
+    </div>
+    <div class="mui-textfield">
+        <textarea name="free form"></textarea>
+    </div>
+    <button type="submit" class="mui-btn mui-btn--raised">Submit</button>
+</form>
+{% endblock %}
