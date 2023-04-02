@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+  </head>
+  <body>
+
+    <div style="width: 40%; margin: auto;">
+        <form class="mui-form" method="POST">
+            <legend style="text-align: center;">Signup for a Google Account</legend>
+            <div class="mui-textfield">
+                <input type="text" name="full_name" placeholder="Full Name" required>
+            </div>
+            <div class="mui-textfield">
+                <input type="email" name="email" placeholder="E-mail" required>
+            </div>
+            <div class="mui-textfield">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="mui-textfield">
+                <label>Select Your Favorite Color:</label>
+                <input type="color" name="favorite color" placeholder="Favorite Color">
+            </div>
+            <div class="mui-textfield">
+                <input type="number" name="age" placeholder="Age" required min="18">
+            </div>
+            <div class="mui-textfield">
+                <input type="url" name="linkedin" placeholder="LinkedIn Page" required>
+            </div>
+            <div class="mui-textfield">
+                <label>Do you agree to the terms?</label>
+                <input type="checkbox" name="terms" required min=>
+            </div>
+            <button type="submit" class="mui-btn mui-btn--raised">Submit</button>
+        </form>
+    <div>
+  </body>
+</html>
