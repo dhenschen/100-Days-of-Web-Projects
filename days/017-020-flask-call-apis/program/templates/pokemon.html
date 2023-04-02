@@ -2,11 +2,16 @@
 
 {% block content %}
     <h1>Pokemon Color List</h1>
-    <h3>Enter a xolor to see which Pokemon are a match!</h3>
+    <h3>Select a color to see which Pokemon are a match!</h3>
     <div>
         <form class="mui-form" method="POST" action="/pokemon">
         <label for="pokecolor">Pokemon Color</label>
-        <input type="text" class="form-control" id="pokecolor" name="pokecolor" placeholder="Eg: Blue"><br>
+        <select class="form-control" id="pokecolor" name="pokecolor">
+            {% for c in possible_poke_colors %}
+                <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+        </select>
+        <br>
         <button type="submit" class="mui-btn mui-btn--raised" value="Submit">Submit</button>
         </form>
     </div>

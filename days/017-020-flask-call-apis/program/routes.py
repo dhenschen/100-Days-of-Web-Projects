@@ -1,5 +1,5 @@
 from program import app
-from flask import render_template, request
+from flask import abort, render_template, request
 from markupsafe import escape
 import pprint
 
@@ -60,6 +60,16 @@ def number():
     return render_template("number.html", number=escape(number), text=escape(text))
 
 
+def get_possible_poke_colors():
+    r = requests.get("https://pokeapi.co/api/v2/pokemon-color/")
+    r.raise_for_status()
+    color_json = r.json()
+    return [escape(e["name"]) for e in color_json["results"]]
+
+
+possible_poke_colors = get_possible_poke_colors()
+
+
 def get_poke_colors(color):
     r = requests.get("https://pokeapi.co/api/v2/pokemon-color/" + color.lower())
     pokedata = r.json()
@@ -76,5 +86,9 @@ def pokemon():
     pokemon = []
     if request.method == "POST" and "pokecolor" in request.form:
         color = request.form.get("pokecolor")
+
+        if color not in possible_poke_colors:
+            abort(400)
+
         pokemon = get_poke_colors(color)
-    return render_template("pokemon.html", pokemon=pokemon)
+    return render_template("pokemon.html", possible_poke_colors=possible_poke_colors, pokemon=pokemon)
