@@ -1,4 +1,4 @@
-import flask
+import quart
 from views import city_api
 from views import home
 from config import settings
@@ -6,7 +6,7 @@ import services.weather_service
 import services.sun_service
 import services.location_service
 
-app = flask.Flask(__name__)
+app = quart.Quart(__name__)
 is_debug = False
 
 app.register_blueprint(home.blueprint)
@@ -22,9 +22,6 @@ def configure_app():
 
     # Sadly, datasciencetoolkit.org seems to have gone out of existence.
     services.location_service.use_cached_data = True
-
-    print("Using cached data? {}".format(data.get('use_cached_data', False)))
-
 
 def run_web_app():
     app.run(debug=is_debug, port=5001)
