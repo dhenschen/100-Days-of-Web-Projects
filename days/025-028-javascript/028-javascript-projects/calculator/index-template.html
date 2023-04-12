@@ -37,8 +37,55 @@
   <div id="result"></div>
 
   <script type="text/javascript">
+
+  function setResultNaN() {
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = NaN;
+    resultDiv.style.color = "red";
+  }
+
+  function setResult(value) {
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = value;
+    resultDiv.style.color = "green";
+  }
+
   function doCalculation(){
-    // you code
+    const operation = document.getElementById("operator").value;
+    const num1 = parseInt(document.getElementById("num1").value);
+    const num2 = parseInt(document.getElementById("num2").value);
+
+    // Check for valid input
+    if (num1 === NaN || num2 === NaN) {
+      setResultNaN();
+      return;
+    }
+
+    // Complete math operation on valid input
+    let value = 0;
+    switch (operation) {
+      case "+":
+        value = num1 + num2;
+        break;
+      case "-":
+        value = num1 - num2;
+        break;
+      case "*":
+        value = num1 * num2;
+        break;
+      case "/":
+        if (num2 === 0) {
+          setResultNaN();
+          return;
+        }
+        value = num1 / num2;
+        break;
+      default:
+        console.log(`Invalid operator ${operation}`);
+    }
+
+    setResult(value);
+
   }
   </script>
 
