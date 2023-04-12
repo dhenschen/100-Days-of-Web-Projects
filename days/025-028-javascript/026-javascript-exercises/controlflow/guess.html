@@ -24,6 +24,24 @@
 
   // you code
 
+  for (let i = 0; i < 5; i++) {
+    let guessStr = prompt("Please enter a number");
+    if ((guessStr === null) || (guessStr == 'q')) {
+      break;
+    }
+    let guess = parseInt(guessStr);
+    if (isNaN(guess)) {
+      continue;
+    }
+
+    if (guess === secretNumber) {
+      console.log("You guessed it!");
+    } else if (guess < secretNumber) {
+      console.log("Too low");
+    } else if (guess > secretNumber) {
+      console.log("Too High");
+    }
+  }
   </script>
 </body>
 </html>
